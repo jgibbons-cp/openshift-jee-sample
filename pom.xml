@@ -39,6 +39,23 @@
               		  <warName>ROOT</warName>
                 </configuration>
             </plugin>
+            <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-surefire-plugin</artifactId>
+                  <version>2.5</version>
+                        <configuration>
+                              <systemPropertyVariables>
+                                    <javaagent>/Users/jenks.gibbons/Downloads/dd-java-agent.jar</javaagent>
+                                    <dd.trace.analytics.enabled>true</dd.trace.analytics.enabled>
+                                    <dd.jms.analytics.enabled>true</dd.jms.analytics.enabled>
+                                    <dd.logs.injection>true</dd.logs.injection>
+                                    <dd.jmxfetch.enabled>true</dd.jmxfetch.enabled>
+                                    <dd.trace.header.tags>X-dynatrace:loadrunner,user-agent:user-agent</dd.trace.header.tags>
+                                    <dd.service.mapping>service:test_app</dd.service.mapping>
+                                    <dd.trace.global.tags>env:aaa_test,service:test_app</dd.trace.global.tags>
+                              </systemPropertyVariables>
+                         </configuration>
+            </plugin>
         </plugins>
       </build>
     </profile>
